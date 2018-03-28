@@ -1,0 +1,154 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="2dp"
+    android:paddingRight="2dp"
+    android:paddingTop="2dp"
+    android:paddingBottom="2dp"
+    tools:context=".MyActivity">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="380dp"
+                android:layout_height="wrap_content"
+                android:padding="5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Follow:"
+                    android:id="@+id/trackingSelection" />
+
+                <RadioGroup
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Nothing"
+                        android:id="@+id/radioButtonNothing"
+                        android:onClick="onRadioButtonClicked" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Me"
+                        android:id="@+id/radioButtonMe"
+                        android:checked="false"
+                        android:onClick="onRadioButtonClicked" />
+
+                    <RadioButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Car"
+                        android:id="@+id/radioButtonCar"
+                        android:onClick="onRadioButtonClicked" />
+                </RadioGroup>
+
+            </LinearLayout>
+
+            <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+                android:id="@+id/map"
+                android:layout_width="380dp"
+                android:layout_height="fill_parent"
+                android:layout_below="@+id/button"
+                android:name="com.google.android.gms.maps.MapFragment"
+                android:layout_column="0"
+                android:layout_row="0"
+                android:layout_columnSpan="1"
+                android:layout_rowSpan="1"
+                android:layout_gravity="fill_horizontal" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="140dp">
+
+                <FrameLayout
+                    android:layout_width="480dp"
+                    android:layout_height="140dp"
+                    android:id="@+id/ogl"></FrameLayout>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="200dp"
+                    android:layout_height="fill_parent"
+                    android:layout_gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Lat: "
+                        android:id="@+id/lat" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/lon"
+                        android:text="Lon:" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/alt"
+                        android:text="Alt:" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <FrameLayout
+                android:id="@+id/camera"
+                android:layout_width="580dp"
+                android:layout_height="380dp"
+                android:layout_column="1"
+                android:layout_row="0"
+                android:layout_columnSpan="1"
+                android:layout_rowSpan="1"
+                >
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="200dp"
+            android:layout_height="fill_parent"
+            android:id="@+id/scrollView"
+            android:layout_gravity="left|center_vertical"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/map"
+            android:onClick="onRadioButtonClicked">
+
+            <TextView
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:text="New Text"
+                android:id="@+id/console"
+                android:layout_gravity="left|top"
+                android:layout_below="@+id/tracking"
+                android:layout_alignParentStart="true" />
+        </ScrollView>
+
+    </LinearLayout>
+
+</RelativeLayout>
